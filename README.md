@@ -19,11 +19,11 @@ The core of the memory array. This cross-coupled inverter design holds the data 
 **Schematic:**
 ![6T SRAM Schematic](sram_sch.png)
 **Transient Output:**
-![6T SRAM Waveform](sram_out.png)
+![6T SRAM Waveform](waveforms/sram_out.png)
 **DC Analysis:**
-![6T SRAM DC Analysis](sram_dc_analysis.png)
+![6T SRAM DC Analysis](waveforms/sram_dc_analysis.png)
 **Butterfly Curve:**
-![6T SRAM Butterfly Curve](sram_butterfly_curve.png)
+![6T SRAM Butterfly Curve](waveforms/sram_butterfly_curve.png)
 
 **Physical Layout (DRC/LVS Clean):**
 ![6T SRAM Layout](sram_layout.png)
@@ -35,7 +35,7 @@ Before any read or write operation, the highly capacitive bitlines must be equal
 
 **Schematic & Transient Output:**
 ![Precharge Schematic](precharge_sch.png)
-![Precharge Waveform](precharge_out.png)
+![Precharge Waveform](waveforms/precharge_out.png)
 
 ---
 
@@ -44,7 +44,7 @@ Designed to overpower the 6T SRAM cell during a write operation. When the `EN` (
 
 **Schematic & Transient Output:**
 ![Write Driver Schematic](write_driver_sch.png)
-![Write Driver Waveform](write_driver_out.png)
+![Write Driver Waveform](waveforms/write_driver_out.png)
 
 ---
 
@@ -53,7 +53,7 @@ Reading a '1' or '0' relies on detecting a tiny voltage drop (often less than 10
 
 **Schematic & Transient Output:**
 ![Sense Amp Schematic](sense_amp_sch.png)
-![Sense Amp Waveform](sense_amp_out.png)
+![Sense Amp Waveform](waveforms/sense_amp_out.png)
 
 ---
 
@@ -62,7 +62,7 @@ A critical architectural component. The `isolation` block uses NMOS pass transis
 
 **Schematic & Transient Output:**
 ![Isolation Schematic](iso_sch.png)
-![Isolation Waveform](iso_out.png)
+![Isolation Waveform](waveforms/iso_out.png)
 ---
 
 ## 6. Top-Level Integration & Timing Orchestration
@@ -80,7 +80,7 @@ To prove the column works realistically, a full master timing sequence was orche
 4. **Write '0' & Read '0':** The process successfully repeats for the opposite state, completing a full memory cycle.
 
 **Top-Level Transient Verification:**
-![SRAM Transient Output](bit_col_out.png)
+![SRAM Transient Output](waveforms/bit_col_out.png)
 
 ---
 *Project completed as part of an advanced Custom IC / VLSI design portfolio.*
