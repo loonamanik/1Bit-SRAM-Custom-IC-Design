@@ -17,7 +17,7 @@ The core of the memory array. This cross-coupled inverter design holds the data 
 * The layout prioritizes symmetry to perfectly match parasitic capacitances, ensuring read stability. 
 
 **Schematic:**
-![6T SRAM Schematic](sram_sch.png)
+![6T SRAM Schematic](schematics/sram_sch.png)
 **Transient Output:**
 ![6T SRAM Waveform](waveforms/sram_out.png)
 **DC Analysis:**
@@ -34,7 +34,7 @@ The core of the memory array. This cross-coupled inverter design holds the data 
 Before any read or write operation, the highly capacitive bitlines must be equalized. This PMOS-based precharge circuit pulls both `BL` and `BLbar` to exactly 1.2V when the active-low `PCH` signal is asserted.
 
 **Schematic & Transient Output:**
-![Precharge Schematic](precharge_sch.png)
+![Precharge Schematic](schematics/precharge_sch.png)
 ![Precharge Waveform](waveforms/precharge_out.png)
 
 ---
@@ -43,7 +43,7 @@ Before any read or write operation, the highly capacitive bitlines must be equal
 Designed to overpower the 6T SRAM cell during a write operation. When the `EN` (Enable) signal is high, the Write Driver pulls either `BL` or `BLbar` aggressively to Ground (0V) based on the input `DATA`, forcing the 6T cell to flip states.
 
 **Schematic & Transient Output:**
-![Write Driver Schematic](write_driver_sch.png)
+![Write Driver Schematic](schematics/write_driver_sch.png)
 ![Write Driver Waveform](waveforms/write_driver_out.png)
 
 ---
@@ -52,7 +52,7 @@ Designed to overpower the 6T SRAM cell during a write operation. When the `EN` (
 Reading a '1' or '0' relies on detecting a tiny voltage drop (often less than 100mV) on the bitlines. This voltage-latched sense amplifier detects that slight differential and violently amplifies it to a full 0V/1.2V digital logic level when the `SSA` (Sense Amp Enable) signal fires.
 
 **Schematic & Transient Output:**
-![Sense Amp Schematic](sense_amp_sch.png)
+![Sense Amp Schematic](schematics/sense_amp_sch.png)
 ![Sense Amp Waveform](waveforms/sense_amp_out.png)
 
 ---
@@ -61,7 +61,7 @@ Reading a '1' or '0' relies on detecting a tiny voltage drop (often less than 10
 A critical architectural component. The `isolation` block uses NMOS pass transistors to bridge the "heavy" upper bitlines to the "delicate" lower bitlines. By slamming this gate shut right before the sense amplifier fires, the amplifier is protected from the massive parasitic capacitance of the main memory array, allowing for highly accelerated read speeds.
 
 **Schematic & Transient Output:**
-![Isolation Schematic](iso_sch.png)
+![Isolation Schematic](schematics/iso_sch.png)
 ![Isolation Waveform](waveforms/iso_out.png)
 ---
 
@@ -70,7 +70,7 @@ All sub-components are instantiated into a complete 1-bit column hierarchy. Dumm
 
 **Top-Level Column Schematic:**
 
-![SRAM Column Schematic](bit_col_sch.png)
+![SRAM Column Schematic](schematics/bit_col_sch.png)
 
 ### Master Timing Sequence
 To prove the column works realistically, a full master timing sequence was orchestrated using precise nanosecond delays:
